@@ -16,6 +16,7 @@ var app_component_1 = require("./app.component");
 var home_component_1 = require("./home/home.component");
 var contact_component_1 = require("./contact/contact.component");
 var about_component_1 = require("./about/about.component");
+var not_found_component_1 = require("./not-found/not-found.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -32,7 +33,8 @@ AppModule = __decorate([
             app_component_1.AppComponent,
             home_component_1.HomeComponent,
             contact_component_1.ContactComponent,
-            about_component_1.AboutComponent
+            about_component_1.AboutComponent,
+            not_found_component_1.NotFoundComponent
         ],
         bootstrap: [app_component_1.AppComponent]
     }),
