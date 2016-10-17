@@ -9,15 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var User = (function () {
+    function User() {
+    }
+    return User;
+}());
+exports.User = User;
+var users = [
+    { id: 1, name: "Rojas", username: "grojas", avatar: "/Content/images/boy.png" },
+    { id: 2, name: "Cadete", username: "cdt", avatar: "/Content/images/girl.png" },
+    { id: 3, name: "Rangel", username: "Rgl", avatar: "/Content/images/man.png" }
+];
 var AboutComponent = (function () {
     function AboutComponent() {
+        this.users = users;
     }
     return AboutComponent;
 }());
 AboutComponent = __decorate([
     core_1.Component({
         selector: "about-page",
-        template: "\n    I am the about page\n  "
+        styles: ["\n      .profile-card {\n        background: #f3f3f3;\n        border-radius: 4px;\n        padding: 30px;\n        text-align: center;\n      }\n\n      .profile-card img {\n        max-width: 50%;\n        margin: 15px auto;\n      }\n      "],
+        template: "\n    <div class=\"row\" *ngIf=\"users\">\n      <div class=\"col-sm-4\" *ngFor=\"let user of users\">\n        <div class=\"profile-card\">\n          <img [src]=\"user.avatar\" alt=\"\" class=\"img-responsive img-circle\">\n          <h2>{{user.name}}</h2>\n          <p><a href=\"#\">{{user.username}}</a></p>\n        </div>\n      </div>\n    </div>\n  "
     }),
     __metadata("design:paramtypes", [])
 ], AboutComponent);
