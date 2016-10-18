@@ -9,17 +9,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var AboutUserComponent = (function () {
-    function AboutUserComponent() {
+var router_1 = require("@angular/router");
+var User = (function () {
+    function User() {
     }
+    return User;
+}());
+exports.User = User;
+var users = [
+    { id: 1, name: "Rojas", username: "grojas", avatar: "/Content/images/boy.png" },
+    { id: 2, name: "Cadete", username: "cdt", avatar: "/Content/images/girl.png" },
+    { id: 3, name: "Rangel", username: "Rgl", avatar: "/Content/images/man.png" }
+];
+var AboutUserComponent = (function () {
+    function AboutUserComponent(route) {
+        this.route = route;
+    }
+    AboutUserComponent.prototype.ngOnInit = function () {
+        // grab the current username
+        var username = this.route.snapshot.params["username"];
+        this.user = users.find(function (user) {
+            return user.username === username;
+        });
+        console.log(username);
+    };
     return AboutUserComponent;
 }());
 AboutUserComponent = __decorate([
     core_1.Component({
         selector: "about-user",
-        template: "\n  I am about user page.\n  "
+        styles: ["\n      img {\n        /*max-width: 50%;*/\n        max-width: 300px;\n        margin: 20px auto;\n      }\n      "],
+        template: "\n    <div class=\"jumbotron text-center\" *ngIf=\"user\">\n        <h1>{{user.name}} ({{user.username}})</h1>\n        <img alt=\"avatar\" [src]=\"user.avatar\" class=\"img-responsive img-circle\">\n    </div>\n  "
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [router_1.ActivatedRoute])
 ], AboutUserComponent);
 exports.AboutUserComponent = AboutUserComponent;
 //# sourceMappingURL=about-user.component.js.map
