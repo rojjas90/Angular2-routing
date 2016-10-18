@@ -6,6 +6,7 @@ import { AppComponent } from "./app.component";
 import { HomeComponent }  from "./home/home.component";
 import { ContactComponent }  from "./contact/contact.component";
 import { AboutComponent } from "./about/about.component";
+import { AboutUserComponent }  from "./about/about-user.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
 
 @NgModule({
@@ -19,6 +20,7 @@ import { NotFoundComponent } from "./not-found/not-found.component";
         HomeComponent,
         ContactComponent,
         AboutComponent,
+        AboutUserComponent,
         NotFoundComponent
     ],
     bootstrap: [AppComponent]

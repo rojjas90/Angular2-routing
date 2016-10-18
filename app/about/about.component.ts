@@ -31,13 +31,17 @@ const users: User[] =
       `],
     template: `
     <div class="row" *ngIf="users">
-      <div class="col-sm-4" *ngFor="let user of users">
-        <div class="profile-card">
-          <img [src]="user.avatar" alt="" class="img-responsive img-circle">
-          <h2>{{user.name}}</h2>
-          <p><a href="#">{{user.username}}</a></p>
+        <div class="col-sm-4" *ngFor="let user of users">
+            <div class="profile-card" [routerLink]="['/about', user.username]">
+                <img [src]="user.avatar" alt="" class="img-responsive img-circle">
+                <h2>{{user.name}}</h2>
+                <p>
+                    <a href="https://www.google.com.mx/#q={{ user.username }}" target="_blank">
+                            {{user.username}}
+                    </a>
+                </p>
+            </div>
         </div>
-      </div>
     </div>
   `
 })
