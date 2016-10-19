@@ -10,28 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var User = (function () {
-    function User() {
-    }
-    return User;
-}());
-exports.User = User;
-var users = [
-    { id: 1, name: "Rojas", username: "grojas", avatar: "/Content/images/boy.png" },
-    { id: 2, name: "Cadete", username: "cdt", avatar: "/Content/images/girl.png" },
-    { id: 3, name: "Rangel", username: "Rgl", avatar: "/Content/images/man.png" }
-];
+var user_service_1 = require("../shared/services/user.service");
 var AboutUserComponent = (function () {
-    function AboutUserComponent(route) {
+    function AboutUserComponent(route, service) {
         this.route = route;
+        this.service = service;
     }
     AboutUserComponent.prototype.ngOnInit = function () {
+        var _this = this;
         // grab the current username
         var username = this.route.snapshot.params["username"];
-        this.user = users.find(function (user) {
-            return user.username === username;
-        });
-        console.log(username);
+        this.service.getUser(username).then(function (user) { return _this.user = user; });
+        // this.service.getUser(username).then(user => {
+        //     this.user = user;
+        // });
+        // this.user = users.find(function(user) {
+        //     return user.username === username;
+        // });
+        // console.log(username);
     };
     return AboutUserComponent;
 }());
@@ -41,7 +37,8 @@ AboutUserComponent = __decorate([
         styles: ["\n      img {\n        /*max-width: 50%;*/\n        max-width: 300px;\n        margin: 20px auto;\n      }\n      "],
         template: "\n    <div class=\"jumbotron text-center\" *ngIf=\"user\">\n        <h1>{{user.name}} ({{user.username}})</h1>\n        <img alt=\"avatar\" [src]=\"user.avatar\" class=\"img-responsive img-circle\">\n    </div>\n  "
     }),
-    __metadata("design:paramtypes", [router_1.ActivatedRoute])
+    __metadata("design:paramtypes", [router_1.ActivatedRoute, typeof (_a = typeof user_service_1.UserService !== "undefined" && user_service_1.UserService) === "function" && _a || Object])
 ], AboutUserComponent);
 exports.AboutUserComponent = AboutUserComponent;
+var _a;
 //# sourceMappingURL=about-user.component.js.map

@@ -1,20 +1,7 @@
 import { Component, OnInit }  from "@angular/core";
 import { ActivatedRoute }  from "@angular/router";
-
-
-export class User {
-    id: number;
-    name: string;
-    username: string;
-    avatar: string;
-}
-
-const users: User[] =
-    [
-        { id: 1, name: "Rojas", username: "grojas", avatar: "/Content/images/boy.png" },
-        { id: 2, name: "Cadete", username: "cdt", avatar: "/Content/images/girl.png" },
-        { id: 3, name: "Rangel", username: "Rgl", avatar: "/Content/images/man.png" }
-    ];
+import { User }  from "../shared/models/user";
+import { UserService }  from "../shared/services/user.service";
 
 @Component({
     selector: "about-user",
@@ -34,18 +21,25 @@ const users: User[] =
 })
 export class AboutUserComponent implements OnInit {
 
-    user;
+    // user;
+    user: User;
 
-    constructor(private route: ActivatedRoute) { }
+    constructor(private route: ActivatedRoute, private service: UserService) { }
 
     ngOnInit() {
         // grab the current username
         let username = this.route.snapshot.params["username"];
 
-        this.user = users.find(function(user) {
-            return user.username === username;
-        });
+        this.service.getUser(username).then(user => this.user = user);
 
-        console.log(username);
+        // this.service.getUser(username).then(user => {
+        //     this.user = user;
+        // });
+
+        // this.user = users.find(function(user) {
+        //     return user.username === username;
+        // });
+
+        // console.log(username);
     }
 }
