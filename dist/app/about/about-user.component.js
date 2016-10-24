@@ -12,9 +12,10 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var user_service_1 = require("../shared/services/user.service");
 var AboutUserComponent = (function () {
-    function AboutUserComponent(route, service) {
+    function AboutUserComponent(route, service, router) {
         this.route = route;
         this.service = service;
+        this.router = router;
     }
     AboutUserComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -29,16 +30,21 @@ var AboutUserComponent = (function () {
         // });
         // console.log(username);
     };
+    AboutUserComponent.prototype.goBack = function () {
+        // window.history.back();
+        this.router.navigate(["/about"]);
+    };
     return AboutUserComponent;
 }());
 AboutUserComponent = __decorate([
     core_1.Component({
         selector: "about-user",
         styles: ["\n      img {\n        /*max-width: 50%;*/\n        max-width: 300px;\n        margin: 20px auto;\n      }\n      "],
-        template: "\n    <div class=\"jumbotron text-center\" *ngIf=\"user\">\n        <h1>{{user.name}} ({{user.username}})</h1>\n        <img alt=\"avatar\" [src]=\"user.avatar\" class=\"img-responsive img-circle\">\n    </div>\n  "
+        template: "\n    <a class=\"btn btn-sm btn-info\" (click)=\"goBack()\">Go back</a>\n    <div class=\"jumbotron text-center\" *ngIf=\"user\">\n        <h1>{{user.name}} ({{user.username}})</h1>\n        <img alt=\"avatar\" [src]=\"user.avatar\" class=\"img-responsive img-circle\">\n    </div>\n  "
     }),
-    __metadata("design:paramtypes", [router_1.ActivatedRoute, typeof (_a = typeof user_service_1.UserService !== "undefined" && user_service_1.UserService) === "function" && _a || Object])
+    __metadata("design:paramtypes", [router_1.ActivatedRoute,
+        user_service_1.UserService,
+        router_1.Router])
 ], AboutUserComponent);
 exports.AboutUserComponent = AboutUserComponent;
-var _a;
 //# sourceMappingURL=about-user.component.js.map
