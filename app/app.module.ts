@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule }  from "@angular/forms";
-import { AboutModule }  from "./about/about.module";
+// import { AboutModule }  from "./about/about.module"; // 15.- 3rd: remove about.module autoloading
 import { appRouting }  from "./app.routing";
 import { AppComponent } from "./app.component";
 import { HomeComponent }  from "./home/home.component";
@@ -12,7 +12,7 @@ import { NotFoundComponent } from "./not-found/not-found.component";
     imports: [
         BrowserModule,
         FormsModule,
-        AboutModule,
+        // AboutModule, // 15.- 3rd: remove about.module autoloading
         appRouting
     ],
     declarations: [

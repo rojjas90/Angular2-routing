@@ -6,7 +6,7 @@ import { AboutSectionComponent } from "./about-section.component";
 
 const aboutRoutes: Routes = [
     {
-        path: "about",
+        path: "", // 15.- 1st: remove path: path: "about" -> path: ""
         component: AboutSectionComponent,
         children: [
             { // whenever we declare children, we always we have to have a path has a blank in it: path: "" ...
