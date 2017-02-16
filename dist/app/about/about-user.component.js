@@ -20,6 +20,7 @@ var AboutUserComponent = (function () {
     }
     AboutUserComponent.prototype.ngOnInit = function () {
         var _this = this;
+        // we've created our abour-user-resolve, so instead of do a request to our service, we just use route.data to recover the date that we already have
         this.route.data.forEach(function (data) {
             _this.user = data.user;
         });

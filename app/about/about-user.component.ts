@@ -33,7 +33,7 @@ export class AboutUserComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-
+      // we've created our abour-user-resolve, so instead of do a request to our service, we just use route.data to recover the date that we already have
         this.route.data.forEach((data: { user: User }) => {
             this.user = data.user;
         });
