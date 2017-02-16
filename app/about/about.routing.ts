@@ -3,7 +3,8 @@ import { Routes, RouterModule  }  from "@angular/router";
 import { AboutComponent } from "./about.component";
 import { AboutUserComponent }  from "./about-user.component";
 import { AboutSectionComponent } from "./about-section.component";
-import { AboutUserResolve } from "./about-resolve.service";
+import { AboutUsersResolve } from "./about-resolve.service";
+import { AboutUserResolve } from "./about-user-resolve.service";
 
 const aboutRoutes: Routes = [
     {
@@ -21,12 +22,15 @@ const aboutRoutes: Routes = [
                 // 16.- if we use a http call, and wrap information from somewhere, we would use resolve:...
                 resolve: {
                     // we gonna craeted our own resolve service
-                    users: AboutUserResolve
+                    users: AboutUsersResolve
                 }
             },
             {
                 path: ":username",
-                component: AboutUserComponent
+                component: AboutUserComponent,
+                resolve: {
+                    user: AboutUserResolve
+                }
             }
         ]
     }

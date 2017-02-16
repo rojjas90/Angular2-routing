@@ -4,6 +4,7 @@ var about_component_1 = require("./about.component");
 var about_user_component_1 = require("./about-user.component");
 var about_section_component_1 = require("./about-section.component");
 var about_resolve_service_1 = require("./about-resolve.service");
+var about_user_resolve_service_1 = require("./about-user-resolve.service");
 var aboutRoutes = [
     {
         path: "",
@@ -20,12 +21,15 @@ var aboutRoutes = [
                 // 16.- if we use a http call, and wrap information from somewhere, we would use resolve:...
                 resolve: {
                     // we gonna craeted our own resolve service
-                    users: about_resolve_service_1.AboutUserResolve
+                    users: about_resolve_service_1.AboutUsersResolve
                 }
             },
             {
                 path: ":username",
-                component: about_user_component_1.AboutUserComponent
+                component: about_user_component_1.AboutUserComponent,
+                resolve: {
+                    user: about_user_resolve_service_1.AboutUserResolve
+                }
             }
         ]
     }

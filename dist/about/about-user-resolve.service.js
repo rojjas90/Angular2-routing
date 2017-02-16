@@ -9,19 +9,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var user_service_1 = require("../shared/services/user.service");
-var AboutUsersResolve = (function () {
-    function AboutUsersResolve(service) {
+var AboutUserResolve = (function () {
+    function AboutUserResolve(service, router) {
         this.service = service;
+        this.router = router;
     }
-    AboutUsersResolve.prototype.resolve = function (route) {
-        return this.service.getUsers().then(function (users) { return users; });
+    AboutUserResolve.prototype.resolve = function (route) {
+        var _this = this;
+        var username = route.params["username"];
+        return this.service.getUser(username).then(function (user) {
+            if (user) {
+                return user;
+            }
+            else {
+                // navigate the user back to the about page
+                _this.router.navigate(["/about"]);
+                return false;
+            }
+        });
     };
-    return AboutUsersResolve;
+    return AboutUserResolve;
 }());
-AboutUsersResolve = __decorate([
+AboutUserResolve = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [user_service_1.UserService])
-], AboutUsersResolve);
-exports.AboutUsersResolve = AboutUsersResolve;
-//# sourceMappingURL=about-resolve.service.js.map
+    __metadata("design:paramtypes", [user_service_1.UserService,
+        router_1.Router])
+], AboutUserResolve);
+exports.AboutUserResolve = AboutUserResolve;
+//# sourceMappingURL=about-user-resolve.service.js.map

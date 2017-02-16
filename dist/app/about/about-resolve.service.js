@@ -10,18 +10,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var user_service_1 = require("../shared/services/user.service");
-var AboutUserResolve = (function () {
-    function AboutUserResolve(service) {
+var AboutUsersResolve = (function () {
+    function AboutUsersResolve(service) {
         this.service = service;
     }
-    AboutUserResolve.prototype.resolve = function (route) {
+    AboutUsersResolve.prototype.resolve = function (route) {
         return this.service.getUsers().then(function (users) { return users; });
     };
-    return AboutUserResolve;
+    return AboutUsersResolve;
 }());
-AboutUserResolve = __decorate([
+AboutUsersResolve = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [user_service_1.UserService])
-], AboutUserResolve);
-exports.AboutUserResolve = AboutUserResolve;
+], AboutUsersResolve);
+exports.AboutUsersResolve = AboutUsersResolve;
 //# sourceMappingURL=about-resolve.service.js.map
