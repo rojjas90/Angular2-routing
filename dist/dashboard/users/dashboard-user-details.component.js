@@ -52,7 +52,7 @@ var DashboardUserDetailsComponent = (function () {
 }());
 DashboardUserDetailsComponent = __decorate([
     core_1.Component({
-        template: "\n    <div class=\"jumbotron\">\n         <div *ngIf=\"user\">\n              <h2>{{user.name}}</h2>\n\n              <div class=\"form-group\">\n                   <input type=\"text\" [(ngModel)]=\"user.editName\" class=\"form-control\">\n              </div>\n\n              <div class=\"form-group text-center\">\n                   <button (click)=\"cancel()\" class=\"btn btn-danger\">Cancel</button>\n                   <button (click)=\"save()\" class=\"btn btn-success\">Save</button>\n              </div>\n         </div>\n    </div>\n    ",
+        template: "\n    <div class=\"jumbotron\">\n         <div *ngIf=\"user\">\n              <h2>{{user.name}}</h2>\n\n              <div class=\"form-group\">\n                   <input type=\"text\" [(ngModel)]=\"editName\" class=\"form-control\">\n              </div>\n\n              <div class=\"form-group text-center\">\n                   <button (click)=\"cancel()\" class=\"btn btn-danger\">Cancel</button>\n                   <button (click)=\"save()\" class=\"btn btn-success\">Save</button>\n              </div>\n         </div>\n    </div>\n    ",
     }),
     __metadata("design:paramtypes", [user_service_1.UserService,
         router_1.ActivatedRoute,

@@ -8,6 +8,7 @@ import { AppComponent } from "./app.component";
 import { HomeComponent }  from "./home/home.component";
 import { ContactComponent }  from "./contact/contact.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
+import { AuthGuard }  from "./shared/guards/auth-guard.service";
 
 @NgModule({
     imports: [
@@ -23,7 +24,9 @@ import { NotFoundComponent } from "./not-found/not-found.component";
         ContactComponent,
         NotFoundComponent
     ],
-    providers: [],
+    providers: [
+        AuthGuard
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,7 +10,7 @@ import { UserService } from "../../shared/services/user.service";
               <h2>{{user.name}}</h2>
 
               <div class="form-group">
-                   <input type="text" [(ngModel)]="user.editName" class="form-control">
+                   <input type="text" [(ngModel)]="editName" class="form-control">
               </div>
 
               <div class="form-group text-center">
