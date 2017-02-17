@@ -22,11 +22,10 @@ export const dashboardRoutes: Routes = [
                         component: DashboardUsersHomeComponent
                     },
                     {
-                        path: "username",
+                        path: ":username",
                         component: DashboardUserDetailsComponent
                     }
                 ]
-
             }
         ]
     }

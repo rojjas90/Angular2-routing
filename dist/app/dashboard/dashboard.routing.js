@@ -21,7 +21,7 @@ exports.dashboardRoutes = [
                         component: dashboard_users_home_component_1.DashboardUsersHomeComponent
                     },
                     {
-                        path: "username",
+                        path: ":username",
                         component: dashboard_user_details_component_1.DashboardUserDetailsComponent
                     }
                 ]
