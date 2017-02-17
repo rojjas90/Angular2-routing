@@ -7,6 +7,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
+// This it should give us, everything we need to gets in to two-way binding going
+var forms_1 = require("@angular/forms");
 var dashboard_component_1 = require("./dashboard.component");
 var dashboard_routing_1 = require("./dashboard.routing");
 var dashboard_users_component_1 = require("./users/dashboard-users.component");
@@ -22,6 +24,7 @@ DashboardModule = __decorate([
     core_1.NgModule({
         imports: [
             common_1.CommonModule,
+            forms_1.FormsModule,
             dashboard_routing_1.dashboardRouting
         ],
         declarations: [
