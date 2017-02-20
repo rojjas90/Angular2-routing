@@ -48,6 +48,14 @@ var DashboardUserDetailsComponent = (function () {
     DashboardUserDetailsComponent.prototype.cancel = function () {
         this.router.navigate(["/dashboard/users"]);
     };
+    DashboardUserDetailsComponent.prototype.canDeactivate = function () {
+        console.log("I am navigation away");
+        // if the editName !== this.user.name
+        if (this.user.name !== this.editName) {
+            return window.confirm("Discard changes?");
+        }
+        return true;
+    };
     return DashboardUserDetailsComponent;
 }());
 DashboardUserDetailsComponent = __decorate([
